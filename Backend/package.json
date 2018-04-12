@@ -1,0 +1,34 @@
+{
+  "name": "todoapp",
+  "version": "1.0.0",
+  "description": "ToDo. This application allows users to keep track of tasks. These tasks include a description",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "Todo",
+    "todo",
+    "app",
+    "todo",
+    "list"
+],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Omaroovee/Todo-App.git"
+  },
+  "author": "Muhammad Omar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Omaroovee/Todo-App/issues"
+  },
+ 
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "eslint": "^4.19.1",
+    "express": "^4.16.3",
+    "pg": "^7.4.1"
+  },
+  "homepage": "https://github.com/Omaroovee/Todo-App#readme"
+}
