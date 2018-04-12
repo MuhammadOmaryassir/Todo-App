@@ -1,7 +1,7 @@
 # Todo App
 - ToDo. This application allows users to keep track of tasks. These tasks include a description.
 
-> This app build by using to separated Projects and Connect to each others using Rest-API's
+> This app build by using two separated Projects and Connect to each others using Rest-API's
 -------------------------------------------------------
 ## Backend : 
 - This app build using NodeJS, Express and PostgressDB
