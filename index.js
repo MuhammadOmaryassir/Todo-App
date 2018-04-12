@@ -1,10 +1,10 @@
 const express = require('express')
-const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+const {DataBase} = require('./models/conection')
 
-const db = mongoose.connect('mongodb://localhost/Name of the DB') // ToDo
+const db = DataBase()
+// db.connect()
 
-const TodoApp = require('./models/TodoModel') // import the TodoApp Schema
 const app = express()
 
 const port = process.env.PORT || 3000 // port number
@@ -12,6 +12,9 @@ const port = process.env.PORT || 3000 // port number
 // using body parser middleware
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
+let TodoRouter = require('./Routes/TodoRoutes')(db)
+
+app.use('/api/todos', TodoRouter)
 
 // home page
 app.get('/', function (req, res) {
