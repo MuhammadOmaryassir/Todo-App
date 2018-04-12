@@ -15,8 +15,13 @@ let TodoController = function (db) {
   }
 
   // get all the data in the Data base
-  const get = function (req, res) {
-    // Todo
+  const get = function (req, results) {
+    const texts = 'SELECT * from todos '
+    db.query(texts, (err, res) => {
+      if (err) { console.log(err.stack) } else {
+        results.send(res.rows)
+      }
+    })
   }
   return {
     post: post,
