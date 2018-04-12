@@ -17,7 +17,7 @@ let routes = function (db) {
         let texts = 'UPDATE todos set text = $1, checked = $2 WHERE id=$3'
         let VALUES = [text, checked, id]
         db.query(texts, VALUES, (err, res) => {
-          if (err) { console.log(err.stack) } else {
+          if (err) { results.send(err.stack) } else {
             results.status(203).send('updated')
           }
         })
@@ -29,7 +29,7 @@ let routes = function (db) {
       let id = req.body.id
       let texts = 'DELETE FROM  todos WHERE id = $1'
       db.query(texts, [id], (err, res) => {
-        if (err) { console.log(err.stack) } else {
+        if (err) { results.send(err.stack) } else {
           results.status(204).send('Removed')
         }
       })
