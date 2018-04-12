@@ -8,6 +8,7 @@ let routes = function (db) {
 
     .post(TodoController.post)
 
+    // Update the values of the todo  by selecting an id
     .put(function (req, results) {
       if (!req.body.id) { results.send('there is nothing selected to update') } else {
         let id = req.body.id
@@ -17,13 +18,22 @@ let routes = function (db) {
         let VALUES = [text, checked, id]
         db.query(texts, VALUES, (err, res) => {
           if (err) { console.log(err.stack) } else {
-            results.send(res.rows[0])
+            results.status(203).send('updated')
           }
         })
       }
     })
 
-    .delete(function (req, res) {})
+    // delete an item from the todo list
+    .delete(function (req, results) {
+      let id = req.body.id
+      let texts = 'DELETE FROM  todos WHERE id = $1'
+      db.query(texts, [id], (err, res) => {
+        if (err) { console.log(err.stack) } else {
+          results.status(204).send('Removed')
+        }
+      })
+    })
 
   return TodoRouter
 }
